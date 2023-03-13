@@ -22,7 +22,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.stevdzasan.messagebar.ContentWithMessageBar
 import com.stevdzasan.messagebar.rememberMessageBarState
 import com.wm.numberly.domain.model.Fact
-import com.wm.numberly.presentation.GetFactScreen.destinations.DetailsScreenDestination
+import com.wm.numberly.presentation.destinations.DetailScreenDestination
 import com.wm.numberly.utils.ConnectionState
 import com.wm.numberly.utils.isInteger
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -77,7 +77,7 @@ fun GetFactScreen(
                             viewModel.getFact(textFieldText)
                             delay(500)
                             val fact = factState.fact
-                            navigator.navigate(DetailsScreenDestination(fact))
+                            navigator.navigate(DetailScreenDestination(fact))
                         } else {
                             messageBarState.addError(exception = Exception("Input valid integer number)"))
                         }
@@ -97,7 +97,7 @@ fun GetFactScreen(
                         delay(500)
                         val fact = factState.fact
 
-                        navigator.navigate(DetailsScreenDestination(fact))
+                        navigator.navigate(DetailScreenDestination(fact))
 
                     }
                 } else {
@@ -122,7 +122,7 @@ fun GetFactScreen(
                             .clickable {
 
                                 navigator.navigate(
-                                    DetailsScreenDestination(
+                                    DetailScreenDestination(
                                         Fact(
                                             number = roomEntryFact.number,
                                             text = roomEntryFact.text,
